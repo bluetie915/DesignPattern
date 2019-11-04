@@ -1,0 +1,15 @@
+autoProposeCode=<\=qwertyuiopasdfghjklzxcvbnm
+autoProposeDelay=0
+commentText=\#8080ff | null | false | false | false | false
+doctypeExternalPubref=\#8080ff | null | false | false | false | false
+doctypeExtrenalSysref=\#8080ff | null | false | false | false | false
+eclipse.preferences.version=1
+html_content_assist_default_page_sort_order=org.eclipse.wst.html.ui.proposalCategory.htmlTemplates\u0000org.eclipse.wst.html.ui.proposalCategory.htmlTags\u0000org.eclipse.wst.css.ui.proposalCategory.css\u0000org.eclipse.wst.css.ui.proposalCategory.cssTemplates\u0000org.eclipse.wst.jsdt.web.ui.ContentAssistProposals\u0000
+html_content_assist_own_page_sort_order=org.eclipse.wst.html.ui.proposalCategory.htmlTemplates\u0000org.eclipse.wst.css.ui.proposalCategory.cssTemplates\u0000org.eclipse.wst.html.ui.proposalCategory.htmlTags\u0000org.eclipse.wst.css.ui.proposalCategory.css\u0000
+org.eclipse.wst.sse.ui.custom_templates=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><templates/>
+tagAttributeEquals=\#808000 | null | false | false | false | false
+tagAttributeName=\#008040 | null | false | false | false | false
+tagAttributeValue=\#ff00ff | null | false | true | false | false
+tagBorder=\#ff0000 | null | false | false | false | false
+tagName=\#ff0000 | null | false | false | false | false
+xmlContent=\#400080 | null | false | false | false | false

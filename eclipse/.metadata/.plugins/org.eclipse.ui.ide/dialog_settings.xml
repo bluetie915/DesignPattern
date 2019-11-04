@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="ExternalProjectImportWizard">
+		<item value="false" key="WizardProjectsImportPage.STORE_NESTED_PROJECTS"/>
+		<item value="true" key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID"/>
+		<item value="false" key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED"/>
+		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="C:\Users\张艺成\Desktop\springmvc"/>
+			<item value="C:\Users\张艺成\Desktop\spring"/>
+			<item value="C:\Users\张艺成\Desktop\spring (1)"/>
+			<item value="C:\Users\张艺成\Desktop\Servlet-ui-705a\Servlet-ui-705"/>
+			<item value="C:\Users\张艺成\Desktop\Promotion4"/>
+			<item value="C:\Users\张艺成\Desktop\Promotion3"/>
+			<item value="C:\Users\张艺成\newworkspace\Promotion3"/>
+			<item value="C:\Users\张艺成\newworkspace\shixun"/>
+			<item value="C:\Users\张艺成\Desktop\1707070209张艺成"/>
+			<item value="C:\Users\张艺成\Desktop\1707070201zhangkedazuoye"/>
+			<item value="C:\Users\张艺成\newworkspace\Test2"/>
+			<item value="C:\Users\张艺成\newworkspace\Test1"/>
+			<item value="C:\Users\张艺成\MyEclipseFile\Test2"/>
+			<item value="C:\Users\张艺成\MyEclipseFile\Test1"/>
+		</list>
+		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
+			<item value=""/>
+		</list>
+	</section>
+	<section name="NewWizardAction">
+		<item value="org.eclipse.jst.servlet.ui.project.facet.WebProjectWizard" key="NewWizardSelectionPage.STORE_SELECTED_ID"/>
+		<list key="NewWizardSelectionPage.STORE_EXPANDED_CATEGORIES_ID">
+			<item value="org.eclipse.wst.web.ui"/>
+		</list>
+	</section>
+	<section name="SaveAsDialogSettings">
+		<item value="613" key="DIALOG_WIDTH"/>
+		<item value="1|Microsoft YaHei UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Microsoft YaHei UI" key="DIALOG_FONT_NAME"/>
+		<item value="645" key="DIALOG_HEIGHT"/>
+		<item value="138" key="DIALOG_X_ORIGIN"/>
+		<item value="114" key="DIALOG_Y_ORIGIN"/>
+	</section>
+</section>

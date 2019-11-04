@@ -1,0 +1,23 @@
+package com.singleton.type1;
+
+public class SingletonTest01 {
+	public static void main(String[] args) {
+		Singleton1 instance = Singleton1.getInstance();
+		Singleton1 instance2 = Singleton1.getInstance();
+		System.out.println(instance==instance2);
+	}
+}
+
+//饿汉式（静态变量）
+class Singleton1 {
+
+	private Singleton1() {
+
+	}
+
+	private final static Singleton1 instance = new Singleton1();
+
+	public static Singleton1 getInstance() {
+		return instance;
+	}
+}

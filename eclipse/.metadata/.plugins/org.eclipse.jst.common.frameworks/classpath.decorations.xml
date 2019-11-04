@@ -1,0 +1,7 @@
+<classpath>
+  <container id="SpringMVC01!org.eclipse.jst.j2ee.internal.web.container">
+    <entry id="C:/Users/张艺成/newworkspace/workspace/SpringMVC01/WebContent/WEB-INF/lib/spring-web-3.2.0.M1.jar">
+      <source-attachment-path>C:/JDK/src.zip</source-attachment-path>
+    </entry>
+  </container>
+</classpath>
