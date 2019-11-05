@@ -1,0 +1,13 @@
+package com.singleton.code;
+
+public class Test {
+	public static void main(String[] args) {
+		// System.out.println(Runtime.class);
+		for (int i = 0; i <= 5; i++) {
+			for (int j = 3; j >= 0; j--) {
+				System.out.print("*");
+			}
+			System.out.println();
+		}
+	}
+}

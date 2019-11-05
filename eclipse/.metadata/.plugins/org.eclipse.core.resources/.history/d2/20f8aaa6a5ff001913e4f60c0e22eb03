@@ -1,7 +1,9 @@
 package com.singleton.code;
 
+import java.util.Scanner;
+
 public class Test {
 	public static void main(String[] args) {
-		 System.out.println(Runtime.class);
+		// System.out.println(Runtime.class);
 	}
 }
