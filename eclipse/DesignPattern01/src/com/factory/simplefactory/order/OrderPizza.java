@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 
 import com.factory.simplefactory.pizza.CheesePizza;
 import com.factory.simplefactory.pizza.GreekPizza;
+import com.factory.simplefactory.pizza.PepperPizza;
 import com.factory.simplefactory.pizza.Pizza;
 
 public class OrderPizza {
@@ -22,6 +23,9 @@ public class OrderPizza {
 			} else if (orderType.equals("cheese")) {
 				pizza = new CheesePizza();
 				pizza.setName("奶酪披萨");
+			} else if (orderType.equals("pepper")) {
+				pizza = new PepperPizza();
+				pizza.setName("胡椒披萨");
 			} else {
 				break;
 			}
