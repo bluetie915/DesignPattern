@@ -1,20 +1,6 @@
 INDEX VERSION 1.129+E:\Code\Behand_End\DesignPattern\eclipse\.metadata\.plugins\org.eclipse.jdt.core
-3335751325.index
-1069399176.index
-2051884769.index
-865741978.index
-2494401593.index
-3125725795.index
-368682434.index
-3966524131.index
-3823437678.index
-2748733375.index
-4167802264.index
-1594905321.index
-142444270.index
-1642650959.index
-1857371720.index
-3988866523.index
+85639386.index
+2219157625.index
+376435602.index
+3714952060.index
 1972323453.index
-2147801284.index
-1312951780.index

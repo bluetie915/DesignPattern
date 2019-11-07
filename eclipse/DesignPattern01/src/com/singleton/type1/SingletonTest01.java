@@ -1,6 +1,6 @@
 package com.singleton.type1;
 
-//饿汉式（静态变量，浪费空间（没有懒加载））
+//饿汉式（静态变量，浪费空间（没有懒加载），推荐单线程使用）
 public class SingletonTest01 {
 	public static void main(String[] args) {
 		Singleton instance1 = Singleton.getInstance();

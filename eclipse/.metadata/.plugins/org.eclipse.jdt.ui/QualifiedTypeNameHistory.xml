@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="com.icss.servlet.HeroAdd"/>
-<fullyQualifiedTypeName name="org.apache.commons.dbutils.QueryRunner"/>
-<fullyQualifiedTypeName name="com.icss.util.DBCon"/>
 <fullyQualifiedTypeName name="com.icss.model.Manager"/>
 <fullyQualifiedTypeName name="com.icss.model.HeroStory"/>
 <fullyQualifiedTypeName name="java.net.URLEncoder"/>
@@ -60,4 +57,7 @@
 <fullyQualifiedTypeName name="com.singleton.type7.Singleton.SingletonInstance"/>
 <fullyQualifiedTypeName name="com.singleton.type8.Singleton"/>
 <fullyQualifiedTypeName name="java.lang.Runtime"/>
+<fullyQualifiedTypeName name="java.util.Scanner"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
+<fullyQualifiedTypeName name="java.lang.IncompatibleClassChangeError"/>
 </qualifiedTypeNameHistroy>
