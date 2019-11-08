@@ -1,16 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="com.icss.model.Manager"/>
-<fullyQualifiedTypeName name="com.icss.model.HeroStory"/>
-<fullyQualifiedTypeName name="java.net.URLEncoder"/>
-<fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
-<fullyQualifiedTypeName name="com.icss.dao.HeroDao"/>
-<fullyQualifiedTypeName name="com.icss.model.Discuss"/>
-<fullyQualifiedTypeName name="us.codecraft.webmagic.Site"/>
-<fullyQualifiedTypeName name="us.codecraft.webmagic.processor.PageProcessor"/>
-<fullyQualifiedTypeName name="us.codecraft.webmagic.Page"/>
-<fullyQualifiedTypeName name="com.pojo.Hello"/>
-<fullyQualifiedTypeName name="com.pojo.Hello1"/>
 <fullyQualifiedTypeName name="org.apache.catalina.core.ApplicationContext"/>
 <fullyQualifiedTypeName name="com.pojo.Hello3"/>
 <fullyQualifiedTypeName name="com.pojo.Hello2"/>
@@ -45,7 +34,6 @@
 <fullyQualifiedTypeName name="java.util.Map"/>
 <fullyQualifiedTypeName name="java.lang.Object"/>
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.ModelAttribute"/>
-<fullyQualifiedTypeName name="java.lang.String"/>
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestMapping"/>
 <fullyQualifiedTypeName name="org.springframework.web.servlet.View"/>
 <fullyQualifiedTypeName name="java.util.Date"/>
@@ -58,6 +46,18 @@
 <fullyQualifiedTypeName name="com.singleton.type8.Singleton"/>
 <fullyQualifiedTypeName name="java.lang.Runtime"/>
 <fullyQualifiedTypeName name="java.util.Scanner"/>
-<fullyQualifiedTypeName name="java.lang.System"/>
 <fullyQualifiedTypeName name="java.lang.IncompatibleClassChangeError"/>
+<fullyQualifiedTypeName name="com.factory.simplefactory.pizza.GreekPizza"/>
+<fullyQualifiedTypeName name="com.factory.simplefactory.pizza.CheesePizza"/>
+<fullyQualifiedTypeName name="java.io.BufferedReader"/>
+<fullyQualifiedTypeName name="java.io.InputStream"/>
+<fullyQualifiedTypeName name="java.io.InputStreamReader"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
+<fullyQualifiedTypeName name="com.factory.simplefactory.order.PizzaStore"/>
+<fullyQualifiedTypeName name="com.factory.simplefactory.pizza.PepperPizza"/>
+<fullyQualifiedTypeName name="com.factory.simplefactory.pizza.Pizza"/>
+<fullyQualifiedTypeName name="com.factory.simplefactory.order.OrderPizza"/>
+<fullyQualifiedTypeName name="java.lang.String"/>
+<fullyQualifiedTypeName name="com.factory.simplefactory.order.SimpleFactory"/>
+<fullyQualifiedTypeName name="com.factory.simplefactory.order.OrderPizza2"/>
 </qualifiedTypeNameHistroy>

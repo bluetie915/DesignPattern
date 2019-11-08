@@ -1,6 +1,6 @@
 community.vpp.*
-/eclipse/.metadata/.plugins
-/eclipse/.recommenders
+/eclipse/.metadata/
+/eclipse/.recommenders/
 /eclipse/RemoteSystemsTempFiles
 !.mvn/wrapper/maven-wrapper.jar
 logs/
