@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Delete resource &apos;10-AJAX&apos;" deleteContents="true" description="Delete resource &apos;10-AJAX&apos;" element1="/10-AJAX" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1564106432923"/>
-</session>
