@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 
+	napespace:名称空间
+	id:唯一标识
+	resultType：返回值类型
+ -->
+<mapper namespace="com.dao.EmployeeMapper">
+	<select id="getEmpById" resultType="employee" databaseId="mysql"> 
+		<!-- select id,last_name lastName,email,gender from tbl_employee where id = #{id} -->  
+		select * from tbl_employee where id = #{id}
+	</select>
+	<!-- <select id="getEmpById" resultType="employee" databaseId="mysql">  
+		select id,last_name lastName,email,gender from tbl_employee where id = #{id}  
+		select uid id,uname lastName,pwd email,sex gender from t_user where uid = #{id}
+	</select> -->
+	
+	<insert id="addEmp" parameterType="com.bean.Employee">
+		insert into tbl_employee(last_name,email,gender) values (#{lastName},#{email},#{gender})
+	</insert>
+	
+	<!-- 
+		public void addEmp(Employee employee);
+	
+	public void updateEmp(Employee employee);
+	
+	public void deleteEmpById(Integer id);
+	 -->
+	
+</mapper>
