@@ -11,6 +11,7 @@ import org.junit.Test;
 
 import com.bean.Employee;
 import com.dao.EmployeeMapper;
+import com.dao.EmployeeMapperAnnotation;
 
 /*
  * 1.根据xml配置文件（全局配置文件）创建一个SqlSesstionFactory对象
@@ -51,7 +52,7 @@ public class MyBatisTest {
 		SqlSessionFactory sqlSessionFactory = getSqlSessionFactory();
 		SqlSession session = sqlSessionFactory.openSession();
 		try {
-			Employee employee = session.selectOne("com.EmployeeMapper.selectEmp", 1);
+			Employee employee = session.selectOne("com.dao.EmployeeMapper.getEmpById", 1);
 			System.out.println(employee);
 		} finally {
 			session.close();
@@ -69,6 +70,19 @@ public class MyBatisTest {
 			//会为接口自动创建一个代理对象，代理对象去执行CRUD方法
 			EmployeeMapper mapper = openSession.getMapper(EmployeeMapper.class);
 			System.out.println(mapper.getClass());
+			Employee employee = mapper.getEmpById(1);
+			System.out.println(employee);
+		}finally {
+			openSession.close();
+		}
+	}
+	
+	@Test
+	public void test02() throws IOException{
+		SqlSessionFactory sqlSessionFactory = getSqlSessionFactory();
+		SqlSession openSession = sqlSessionFactory.openSession();
+		try{
+			EmployeeMapperAnnotation mapper = openSession.getMapper(EmployeeMapperAnnotation.class);
 			Employee employee = mapper.getEmpById(1);
 			System.out.println(employee);
 		}finally {
