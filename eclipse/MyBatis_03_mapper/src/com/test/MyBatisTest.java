@@ -63,29 +63,63 @@ public class MyBatisTest {
 	public void test01() throws IOException {
 		// 1.获取SqlSessionFactory对象
 		SqlSessionFactory sqlSessionFactory = getSqlSessionFactory();
-		//2.获取sqlSession对象
+		// 2.获取sqlSession对象
 		SqlSession openSession = sqlSessionFactory.openSession();
-		try{
-			//3.获取接口的实现类对象
-			//会为接口自动创建一个代理对象，代理对象去执行CRUD方法
+		try {
+			// 3.获取接口的实现类对象
+			// 会为接口自动创建一个代理对象，代理对象去执行CRUD方法
 			EmployeeMapper mapper = openSession.getMapper(EmployeeMapper.class);
 			System.out.println(mapper.getClass());
 			Employee employee = mapper.getEmpById(1);
 			System.out.println(employee);
-		}finally {
+		} finally {
 			openSession.close();
 		}
 	}
-	
+
 	@Test
-	public void test02() throws IOException{
+	public void test02() throws IOException {
 		SqlSessionFactory sqlSessionFactory = getSqlSessionFactory();
 		SqlSession openSession = sqlSessionFactory.openSession();
-		try{
+		try {
 			EmployeeMapperAnnotation mapper = openSession.getMapper(EmployeeMapperAnnotation.class);
 			Employee employee = mapper.getEmpById(1);
 			System.out.println(employee);
-		}finally {
+		} finally {
+			openSession.close();
+		}
+	}
+
+	/*
+		测试增删改
+		1.mybatis允许增删改直接定义以下类型的返回值
+			Integer，Long，Boolean，可以直接在接口上定义返回值类型即可
+	 	2.我们需要手动提交数据
+	 		sqlSessionFactory.openSession();==>手动提交
+	 		sqlSessionFactory.openSession(true);==>自动提交
+	 */	
+	@Test
+	public void test03() throws IOException {
+		SqlSessionFactory sqlSessionFactory = getSqlSessionFactory();
+		// 1.获取到的SQLSession不会自动提交
+		SqlSession openSession = sqlSessionFactory.openSession();
+		try {
+			EmployeeMapper mapper = openSession.getMapper(EmployeeMapper.class);
+			//测试添加
+			Employee employee = new Employee(null, "Jerry", "Jerry@qq.com", "1");
+			mapper.addEmp(employee);
+			System.out.println(employee);
+			
+			//测试修改
+//			Employee employee = new Employee(1, "Tom", "Jerry@qq.com", "1");
+//			boolean updateEmp = mapper.updateEmp(employee);
+//			System.out.println(updateEmp);
+			//测试删除
+//			mapper.deleteEmpById(4);
+			
+			//3.手动提交
+			openSession.commit();
+		} finally {
 			openSession.close();
 		}
 	}
