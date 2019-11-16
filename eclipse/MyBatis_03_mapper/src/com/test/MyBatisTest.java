@@ -123,5 +123,8 @@ public class MyBatisTest {
 			openSession.close();
 		}
 	}
+	
+//	@Test
+	
 
 }

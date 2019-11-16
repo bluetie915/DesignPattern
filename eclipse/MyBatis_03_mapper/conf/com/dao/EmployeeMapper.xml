@@ -8,9 +8,8 @@
  -->
 <mapper namespace="com.dao.EmployeeMapper">
 
-	<select id="">
+	<select id="getEmpByIdAndName">
 		select * from tbl_employee where id = #{id} and last_name = #{lastName};
-		
 	</select>
 
 
