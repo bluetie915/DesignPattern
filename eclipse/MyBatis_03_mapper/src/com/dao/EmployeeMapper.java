@@ -1,10 +1,16 @@
 package com.dao;
 
+import java.util.Map;
+
+import org.apache.ibatis.annotations.Param;
+
 import com.bean.Employee;
 
 public interface EmployeeMapper {
 
-	public Employee getEmpByIdAndLastName(Integer id, String lastName);
+	public Employee getEmpByMap(Map<String, Object> map);
+	
+	public Employee getEmpByIdAndName(@Param("id") Integer id, @Param("lastName") String lastName);
 
 	public Employee getEmpById(Integer id);
 

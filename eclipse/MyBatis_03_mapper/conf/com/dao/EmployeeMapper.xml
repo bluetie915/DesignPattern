@@ -8,7 +8,20 @@
  -->
 <mapper namespace="com.dao.EmployeeMapper">
 
-	<select id="getEmpByIdAndName">
+
+	<!-- 	
+		public Employee getEmpByMap(Map<String, Object> map);
+	 -->
+	<select id="getEmpByMap" resultType="com.bean.Employee">
+		select * from tbl_employee where id = #{id} and last_name = #{lastName};
+	</select>
+
+
+
+	<!-- 	
+		public Employee getEmpByIdAndName(@Param("id") Integer id, @Param("lastName") String lastName);
+	 -->
+	<select id="getEmpByIdAndName" resultType="com.bean.Employee">
 		select * from tbl_employee where id = #{id} and last_name = #{lastName};
 	</select>
 

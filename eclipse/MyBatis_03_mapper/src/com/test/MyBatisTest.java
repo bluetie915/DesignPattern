@@ -2,6 +2,8 @@ package com.test;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -124,7 +126,26 @@ public class MyBatisTest {
 		}
 	}
 	
-//	@Test
+	@Test
+	public void test04() throws IOException{
+		String resource = "mybatis-config.xml";
+		InputStream inputStream = Resources.getResourceAsStream(resource);
+		SqlSessionFactoryBuilder builder = new SqlSessionFactoryBuilder();
+		SqlSessionFactory sessionFactory = builder.build(inputStream);
+		SqlSession session = sessionFactory.openSession();
+		try{
+			EmployeeMapper mapper = session.getMapper(EmployeeMapper.class);
+//			Employee employee = mapper.getEmpByIdAndName(1, "Tom");
+			Map<String, Object> map = new HashMap<>();
+			map.put("id", 1);
+			map.put("lastName", "Tom");
+			Employee employee = mapper.getEmpByMap(map);
+			System.out.println(employee);
+		}finally {
+			session.close();
+		}
+		
+	}
 	
 
 }
