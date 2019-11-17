@@ -3,6 +3,7 @@ package com.test;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.io.Resources;
@@ -93,13 +94,10 @@ public class MyBatisTest {
 	}
 
 	/*
-		测试增删改
-		1.mybatis允许增删改直接定义以下类型的返回值
-			Integer，Long，Boolean，可以直接在接口上定义返回值类型即可
-	 	2.我们需要手动提交数据
-	 		sqlSessionFactory.openSession();==>手动提交
-	 		sqlSessionFactory.openSession(true);==>自动提交
-	 */	
+	 * 测试增删改 1.mybatis允许增删改直接定义以下类型的返回值 Integer，Long，Boolean，可以直接在接口上定义返回值类型即可
+	 * 2.我们需要手动提交数据 sqlSessionFactory.openSession();==>手动提交
+	 * sqlSessionFactory.openSession(true);==>自动提交
+	 */
 	@Test
 	public void test03() throws IOException {
 		SqlSessionFactory sqlSessionFactory = getSqlSessionFactory();
@@ -107,45 +105,63 @@ public class MyBatisTest {
 		SqlSession openSession = sqlSessionFactory.openSession();
 		try {
 			EmployeeMapper mapper = openSession.getMapper(EmployeeMapper.class);
-			//测试添加
+			// 测试添加
 			Employee employee = new Employee(null, "Jerry", "Jerry@qq.com", "1");
 			mapper.addEmp(employee);
 			System.out.println(employee);
-			
-			//测试修改
-//			Employee employee = new Employee(1, "Tom", "Jerry@qq.com", "1");
-//			boolean updateEmp = mapper.updateEmp(employee);
-//			System.out.println(updateEmp);
-			//测试删除
-//			mapper.deleteEmpById(4);
-			
-			//3.手动提交
+
+			// 测试修改
+			// Employee employee = new Employee(1, "Tom", "Jerry@qq.com", "1");
+			// boolean updateEmp = mapper.updateEmp(employee);
+			// System.out.println(updateEmp);
+			// 测试删除
+			// mapper.deleteEmpById(4);
+
+			// 3.手动提交
 			openSession.commit();
 		} finally {
 			openSession.close();
 		}
 	}
-	
+
 	@Test
-	public void test04() throws IOException{
+	public void test04() throws IOException {
 		String resource = "mybatis-config.xml";
 		InputStream inputStream = Resources.getResourceAsStream(resource);
 		SqlSessionFactoryBuilder builder = new SqlSessionFactoryBuilder();
 		SqlSessionFactory sessionFactory = builder.build(inputStream);
 		SqlSession session = sessionFactory.openSession();
-		try{
+		try {
 			EmployeeMapper mapper = session.getMapper(EmployeeMapper.class);
-//			Employee employee = mapper.getEmpByIdAndName(1, "Tom");
+			// Employee employee = mapper.getEmpByIdAndName(1, "Tom");
 			Map<String, Object> map = new HashMap<>();
 			map.put("id", 1);
 			map.put("lastName", "Tom");
+			map.put("tableName", "tbl_employee");
 			Employee employee = mapper.getEmpByMap(map);
 			System.out.println(employee);
-		}finally {
+		} finally {
 			session.close();
 		}
-		
+
 	}
-	
+
+	@Test
+	public void test05() throws IOException {
+		String resource = "mybatis-config.xml";
+		InputStream inputStream = Resources.getResourceAsStream(resource);
+		SqlSessionFactoryBuilder builder = new SqlSessionFactoryBuilder();
+		SqlSessionFactory sessionFactory = builder.build(inputStream);
+		SqlSession session = sessionFactory.openSession();
+		try {
+			EmployeeMapper mapper = session.getMapper(EmployeeMapper.class);
+			List<Employee> employees = mapper.getEmpsByLastNameLike("%e%");
+			for (Employee employee : employees) {
+				System.out.println(employee);
+			}
+		} finally {
+			session.close();
+		}
+	}
 
 }

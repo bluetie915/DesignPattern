@@ -43,3 +43,28 @@ public Employee getEmpById(List<Integer> ids);
 	取值：取出第一个id的值：#{list[0]}
 	
 ====================结合源码：mybatis怎么处理参数==========================
+总结：参数多时会封装map，为了不混乱，我们可以使用@Param来指定封装进使用的key
+	#{key}就可以取出map中的值
+	
+=====================参数值的获取=============================================
+#{}：可以获取map中的值或者pojo对象属性的值；
+${}: 可以获取map中的值或者pojo对象属性的值；
+	区别：
+		#{}：是预编译的形式，将参数置到sql语句中，PreparedStatement；
+		${}：取出的值直接拼装在sql语句中，会安全问题；
+		大多情况下，我们去参数值都应该去使用#{}；
+		
+		原生jdbc不支持点位符的地方我们就可以使用${}进行取值
+		比如分表、排序：按照年份分表拆分
+			select * from ${year}_salary where ×××;
+			select * from tbl_employee order by ${f_name} ${order};
+
+#{}：更丰富的用法：
+	规定参数的一些细则：
+	javaType、jdbcType、mode(存储过程)、numericScale
+	resultMap、typeHandler、jdbcTypeName、expression(未来准备支持的功能)
+	jdbcType通常需要在特定的条件下被配置
+		在我们数据为null的进修，有些数据库可能不能识别mybatis对null的默认处理，比如Oracle(报错)
+		由于全局配置中，jdbcTypeForNull=OTHER   oracle不支持
+		1.#{email,jdbcType=NULL};
+		2.jdbcTypeForNull=NULL
