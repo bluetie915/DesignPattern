@@ -48,4 +48,17 @@ public class MyBatisTest2 {
 			session.close();
 		}
 	}
+	
+	@Test
+	public void test03() throws IOException {
+		SqlSession session = getFactory().openSession();
+		try {
+			EmployeeMapperPlus mapper = session.getMapper(EmployeeMapperPlus.class);
+			Employee employee = mapper.getEmpByIdStep(1);
+			System.out.println(employee.getLastName());
+			System.out.println(employee.getDept().getDepartmentName());
+		} finally {
+			session.close();
+		}
+	}
 }
