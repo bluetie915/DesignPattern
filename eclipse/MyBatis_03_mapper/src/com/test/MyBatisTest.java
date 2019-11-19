@@ -159,6 +159,14 @@ public class MyBatisTest {
 			for (Employee employee : employees) {
 				System.out.println(employee);
 			}
+			
+			//返回一个map（一个对象）
+			Map<String, Object> map = mapper.getEmpByIdReturnMap(5);
+			System.out.println(map);
+			
+			//返回一个map（多个对象）
+			Map<Integer, Employee> map2 = mapper.getEmpByLastNameLikeReturnMap("%r%");
+			System.out.println(map2);
 		} finally {
 			session.close();
 		}
