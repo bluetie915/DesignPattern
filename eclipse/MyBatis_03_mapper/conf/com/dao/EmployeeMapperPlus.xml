@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dao.EmployeeMapperPlus">
+	
+	<!-- 
+		自定义某个javaBean的封装规则
+		type:自定义规则的java类型
+		id：唯一id房比阿尼引用
+	 -->
+	 <resultMap type="com.bean.Employee" id="MySimpleEmp">
+	 	<!-- 
+	 		指定主键列的封装规则
+	 		id定义主键会底层优化
+	 		column:指定哪一列
+	 		property：指定对应的javaBean属性
+	 	 -->
+	 	<id column="id" property="id"/>
+	 	<!-- 定义普通列封装规则 -->
+	 	<result column="last_name" property="lastName"/>
+	 	<!-- 其他不指定的列会自动封装，我们只要写resultMap就把全部的映射规则都写上 -->
+	 	<result column="email" property="email"/>
+	 	<result column="gender" property="gender"/>
+	 </resultMap>
+	
+	<!-- resultMap：自定义结果集映射规则 -->
+	<!-- 	public Employee getEmpById(Integer id); -->
+	<select id="getEmpById" resultMap="MySimpleEmp">
+		select * from tbl_employee where id = #{id}
+	</select>
+	
+	<!-- 
+		场景1：
+		查询Employee的同时查询出员工的部门
+		Employee===Department
+		一个员工有与之对应的部门信息
+		id	last_name	gender	d_id	did		dept_name		
+	 -->
+	 
+	 <!-- 
+	 	联合查询：级联属性封装结果集
+	  -->
+	<resultMap type="employee" id="MyDifEmp">
+		<id column="id" property="id"/>
+		<result column="last_name" property="lastName"/>
+		<result column="gender" property="gender"/>
+		<result column="did" property="dept.id"/>
+		<result column="dept_name" property="dept.departmentName"/>
+	</resultMap>
+	<!-- 
+		使用association定义单个对象的封装规则
+	 -->
+	 <resultMap type="employee" id="MyDifEmp2">
+	 	<id column="id" property="id"/>
+		<result column="last_name" property="lastName"/>
+		<result column="gender" property="gender"/>
+		<!-- association可以指定联合的JavaBean对象
+			property="dept"：指定哪个属性是联合的对象
+			javaType:指定这个属性的（不能省略）
+			
+		 -->
+	 	<association property="dept" javaType="com.bean.Department">
+	 		<id column="did" property="id"/>
+	 		<result column="dept_name" property="departmentName"/>
+	 	</association>
+	 </resultMap>
+	 
+	 <!-- 	public Employee getEmpAndDept(Integer id); -->
+	<select id="getEmpAndDept" resultMap="MyDifEmp2">
+		select e.id id,e.last_name last_name,e.gender gender,e.d_id d_id,
+		d.id did,d.dept_name dept_name from tbl_employee e,tbl_dept d 
+		where e.d_id=d.id AND e.id = #{id}
+	</select>
+	
+	
+</mapper>

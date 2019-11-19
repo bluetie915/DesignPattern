@@ -11,7 +11,7 @@
 	<!-- 
 			public Map<Integer, Employee> getEmpByLastNameLikeReturnMap(String lastName);
 	 -->
-	<select id="getEmpByLastNameLikeReturnMap" resultType="com.bean.Employee">
+	<select id="getEmpByLastNameLikeReturnMap" resultType="employee">
 		select * from tbl_employee where last_name like #{lastName}
 	</select>
 
@@ -32,9 +32,6 @@
 	 	select * from tbl_employee where last_name like #{lastName}
 	 </select>
 	 
-	 
-	 
-
 	<!-- 	
 		public Employee getEmpByMap(Map<String, Object> map);
 	 -->
@@ -50,8 +47,6 @@
 	<select id="getEmpByIdAndName" resultType="com.bean.Employee">
 		select * from tbl_employee where id = #{id} and last_name = #{lastName};
 	</select>
-
-
 
 
 	<select id="getEmpById" resultType="employee" databaseId="mysql"> 

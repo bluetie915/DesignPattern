@@ -96,11 +96,11 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	 -->
 	<mappers>
 		<!-- <mapper resource="com/dao/EmployeeMapper.xml" /> -->
-		<mapper class="com.dao.EmployeeMapper"/>
-		<mapper class="com.dao.EmployeeMapperAnnotation"/>
+		<!-- <mapper class="com.dao.EmployeeMapper"/>
+		<mapper class="com.dao.EmployeeMapperAnnotation"/> -->
 		<!-- 
 			批量注册
 		 -->
-		 <!-- <package name="com.dao"/> -->
+		 <package name="com.dao"/>
 	</mappers>
 </configuration>

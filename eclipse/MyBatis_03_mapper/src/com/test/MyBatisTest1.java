@@ -42,7 +42,7 @@ import com.dao.EmployeeMapperAnnotation;
 			将sql抽取出来
 	
 */
-public class MyBatisTest {
+public class MyBatisTest1 {
 
 	public SqlSessionFactory getSqlSessionFactory() throws IOException {
 		String resource = "mybatis-config.xml";
