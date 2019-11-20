@@ -120,4 +120,40 @@
 	 <select id="getEmpsByDeptId" resultType="employee">
 	 	SELECT * from tbl_employee where d_id = #{deptId}
 	 </select>
+	 
+	 
+	 <!-- 
+		<discriminator javaType=""></discriminator>
+		鉴别器：mybatis可以使用discriminator判断某列的值，然后根据某列的值改变封装行为
+		封装Employee
+			如果查出的是女生，就把部门信息查询出来，否则不查询
+			如果是男生，把last_name这一列的值赋给email
+	  -->
+	  <!-- <resultMap type="employee" id="MyEmpDis">
+	  	<id column="id" property="id"/>
+		<result column="last_name" property="lastName"/>
+		<result column="email" property="email"/>
+		<result column="gender" property="gender"/> 
+		
+			column:指定判断的列名
+			javaType:列值对应的java类型
+		
+		<discriminator javaType="string" column="gender">
+			女生resultType:指定封装的结果类型
+			<case value="0" resultType="employee">
+				<association property="dept" 
+					select="com.dao.DepartmentMapper.getDeptById"
+					column="d_id">
+				</association>
+			</case>
+			如果是男生，把last_name这一列的值赋给email
+			<case value="1" resultType="employee">
+				<id column="id" property="id"/>
+				<result column="last_name" property="lastName"/>
+				<result column="last_name" property="email"/>
+				<result column="gender" property="gender"/> 
+			</case>
+		</discriminator>
+			
+	  </resultMap> -->
 </mapper>
