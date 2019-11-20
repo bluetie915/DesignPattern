@@ -53,9 +53,9 @@ public class MyBatisTest2 {
 		SqlSession session = getFactory().openSession();
 		try {
 			EmployeeMapperPlus mapper = session.getMapper(EmployeeMapperPlus.class);
-			Employee employee = mapper.getEmpByIdStep(1);
-			System.out.println(employee.getLastName());
-			System.out.println(employee.getDept().getDepartmentName());
+			Employee employee = mapper.getEmpByIdStep(5);
+			System.out.println(employee);
+			System.out.println(employee.getDept());
 		} finally {
 			session.close();
 		}

@@ -97,7 +97,7 @@
 		</association>
 	</resultMap>
 	<!-- 	public Employee getEmpByIdStep(Integer id); -->
-	<select id="getEmpByIdStep" resultMap="MyEmpByStep">
+	<select id="getEmpByIdStep" resultMap="MyEmpDis">
 		select * from tbl_employee where id = #{id}
 	</select>
 	
@@ -129,24 +129,24 @@
 			如果查出的是女生，就把部门信息查询出来，否则不查询
 			如果是男生，把last_name这一列的值赋给email
 	  -->
-	  <!-- <resultMap type="employee" id="MyEmpDis">
+	  <resultMap type="employee" id="MyEmpDis">
 	  	<id column="id" property="id"/>
 		<result column="last_name" property="lastName"/>
 		<result column="email" property="email"/>
 		<result column="gender" property="gender"/> 
 		
-			column:指定判断的列名
-			javaType:列值对应的java类型
+			<!-- column:指定判断的列名
+			javaType:列值对应的java类型 -->
 		
 		<discriminator javaType="string" column="gender">
-			女生resultType:指定封装的结果类型
+			<!-- 女生resultType:指定封装的结果类型 -->
 			<case value="0" resultType="employee">
 				<association property="dept" 
 					select="com.dao.DepartmentMapper.getDeptById"
 					column="d_id">
 				</association>
 			</case>
-			如果是男生，把last_name这一列的值赋给email
+			<!-- 如果是男生，把last_name这一列的值赋给email -->
 			<case value="1" resultType="employee">
 				<id column="id" property="id"/>
 				<result column="last_name" property="lastName"/>
@@ -155,5 +155,5 @@
 			</case>
 		</discriminator>
 			
-	  </resultMap> -->
+	  </resultMap>
 </mapper>
