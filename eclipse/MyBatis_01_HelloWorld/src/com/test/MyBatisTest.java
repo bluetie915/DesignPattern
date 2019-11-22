@@ -51,7 +51,7 @@ public class MyBatisTest {
 		SqlSessionFactory sqlSessionFactory = getSqlSessionFactory();
 		SqlSession session = sqlSessionFactory.openSession();
 		try {
-			Employee employee = session.selectOne("com.EmployeeMapper.selectEmp", 1);
+			Employee employee = session.selectOne("com.dao.EmployeeMapper.getEmpById", 1);
 			System.out.println(employee);
 		} finally {
 			session.close();
