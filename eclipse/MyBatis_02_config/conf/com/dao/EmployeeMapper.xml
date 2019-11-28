@@ -11,8 +11,8 @@
 		<!-- select id,last_name lastName,email,gender from tbl_employee where id = #{id} -->  
 		select * from tbl_employee where id = #{id}
 	</select>
-	<!-- <select id="getEmpById" resultType="employee" databaseId="mysql">  
+	<select id="getEmpById" resultType="employee" databaseId="sqlserver">  
 		select id,last_name lastName,email,gender from tbl_employee where id = #{id}  
-		select uid id,uname lastName,pwd email,sex gender from t_user where uid = #{id}
-	</select> -->
+		<!-- select uid id,uname lastName,pwd email,sex gender from t_user where uid = #{id} -->
+	</select>
 </mapper>
