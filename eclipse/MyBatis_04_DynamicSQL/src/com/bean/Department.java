@@ -33,5 +33,9 @@ public class Department {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	public Department(Integer id) {
+		super();
+		this.id = id;
+	}
 	
 }
