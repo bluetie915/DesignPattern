@@ -8,5 +8,28 @@
 		trim(where, set)
 		foreach
 	 -->
-	
+	 
+	 
+	<!-- 查询员工，要求携带了哪个字段查询条件就带上这个字段的值 -->
+	<!-- public List<Employee> getEmpsByConditionIf(Employee employee); -->
+	<select id="getEmpsByConditionIf" resultType="employee">
+		select * from tbl_employee where 
+		<!-- 
+			test:判断表达式（OGNL）
+			OGNL参照官方文档
+			从参数中取值进行判断
+		 -->
+		<if test="id != null"></if>
+			id = #{id}
+		<if test="lastName != null and lastName != ''">
+			last_name like #{lastName}
+		</if>
+		<if test="email != null and email.trim() != ''">
+			and email = #{email} 
+		</if>
+		<!-- OGNL会进行字符串与数字的转换判断 -->
+		<if test="gender == 0 or gender == 1">
+		 	and gender = #{gender}
+		</if>
+	</select>
 </mapper>
