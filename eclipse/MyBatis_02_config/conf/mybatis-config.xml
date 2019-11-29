@@ -47,7 +47,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 					type:UNPOOLED|POOLED|JNDI
 					也可以自定义数据源：实现DataSourceFactory接口，type是全类名
 	-->
-	<environments default="mysql">
+	<environments default="sqlserver">
 		<environment id="mysql">
 			<transactionManager type="JDBC" />
 			<dataSource type="POOLED">

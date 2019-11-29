@@ -168,7 +168,46 @@
 		Oracle不支持values(),(),()
 		Oracle支持的方式：
 		1.多个sql放在begin-end里面
+		2.利用中间表
 	 -->
+	 <!-- oracle第一种批量方式 -->
+	<!-- <insert id="addEmps" databaseId="oracle">
+		<foreach collection="employees" item="emp" open="begin" close="end;">
+			insert into employees(employee_id,last_name,email)
+				values(employee.seq.nextval,#{emp.lastName},#{emp.email});
+		</foreach>
+	</insert> -->
+	<!-- oracle第二种批量方式 -->
+	<!-- <insert id="addEmps" databaseId="oracle">
+			insert into employees(employee_id,last_name,email)
+				select employees_seq.nextval,lastName,email from(
+					<foreach collection="emps" item="emp" separator="union">
+						select #{emp.lastName} lastName,#{emp.email} email from dual
+					</foreach>
+				)
+	</insert> -->
 	
 	
+	<!-- 
+		两个内置参数：
+			不只是方法传递过来的参数可以用来判断，取值。。。
+			mybatis默认还有两个内置参数：
+			_parameter:代表整个参数
+				单个参数：_parameter就是这个参数
+				多个参数：参数会被封装为一个map：_parameter就是代表这个map
+			_databaseId:如果配置了databaseIdProvider标签，
+				_databaseId就是代表当前数据库的别名oracle
+	 -->
+	 <!-- public List<Employee> getEmpsTestInnerParameter(Employee employee); -->
+	  <select id="getEmpsTestInnerParameter" resultType="employee">
+	  		<if test="_databaseId=='mysql'">
+		  		select * from tbl_employee
+		  		<if test="_parameter != null">
+		  			where last_name = #{_parameter.lastName}
+		  		</if>
+	  		</if>
+			<if test="_databaseId=='sqlserver'">
+				select * from tbl_employee
+			</if>		  
+	  </select>
 </mapper>

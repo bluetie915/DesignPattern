@@ -8,6 +8,8 @@ import com.bean.Employee;
 
 public interface EmployeeMapperDynamicSQL {
 	
+	public List<Employee> getEmpsTestInnerParameter(Employee employee);
+	
 	//携带了哪个字段就带上这个字段的值
 	public List<Employee> getEmpsByConditionIf(Employee employee);
 	

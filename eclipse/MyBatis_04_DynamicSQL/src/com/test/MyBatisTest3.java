@@ -1,7 +1,5 @@
 package com.test;
 
-import static org.junit.Assert.*;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -123,6 +121,22 @@ public class MyBatisTest3 {
 			employees.add(new Employee(null,"Allen","Allen@qq.com","0",new Department(1)));
 			mapper.addEmps(employees);
 			openSession.commit();
+		} finally {
+			openSession.close();
+		}
+	}
+	
+	@Test
+	public void testDynamicSql7() throws IOException{
+		SqlSessionFactory factory = getFactory();
+		SqlSession openSession = factory.openSession();
+		try {
+			EmployeeMapperDynamicSQL mapper = openSession.getMapper(EmployeeMapperDynamicSQL.class);
+			List<Employee> employees = mapper.getEmpsTestInnerParameter(null);
+			for(Employee employee : employees){
+				System.out.println(employee);
+			}
+//			openSession.commit();
 		} finally {
 			openSession.close();
 		}
