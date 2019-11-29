@@ -200,14 +200,42 @@
 	 -->
 	 <!-- public List<Employee> getEmpsTestInnerParameter(Employee employee); -->
 	  <select id="getEmpsTestInnerParameter" resultType="employee">
+	  		<!-- bind：可以将OGNL表达式的值绑定到一个变量中，方便后来引用这个变量的值 -->
+	  		<bind name="_lastName" value="'_'+lastName+'%'"/>
 	  		<if test="_databaseId=='mysql'">
 		  		select * from tbl_employee
 		  		<if test="_parameter != null">
-		  			where last_name = #{_parameter.lastName}
+		  			where last_name like #{_lastName}
 		  		</if>
 	  		</if>
 			<if test="_databaseId=='sqlserver'">
 				select * from tbl_employee
+				<if test="_parameter != null">
+					where last_name like #{_parametere.lastName}				
+				</if>
 			</if>		  
 	  </select>
+	  
+	  <!-- 
+	  	抽取可重用的sql片段，方便后面引用
+	  	其中也可以使用if判断
+	  	1、经常半要查询的列名，或者插入用的列名抽取出来方便引用
+	  	2、include来引用已经抽取的sql
+	  	3、include还可以自定义一些property，sql标签内部就能使用自定义的属性
+	  		include-property取值的正确方式${prop}
+	  		#{不能使用这种方式}
+	   -->
+	  <sql id="insertColumn">
+	  	<if test="_databaseId == 'mysql'">
+		  	id,last_name,email
+	  	</if>
+	  	<if test="_databaseId == 'sqlserver'">
+	  		if,email,gender
+	  	</if>
+	  </sql>
+	  <insert id="">
+	  	insert into tbl_employee(
+	  		<include refid="insertColumn"></include>
+	  	) values ....
+	  </insert>
 </mapper>

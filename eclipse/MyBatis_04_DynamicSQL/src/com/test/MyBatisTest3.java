@@ -136,7 +136,23 @@ public class MyBatisTest3 {
 			for(Employee employee : employees){
 				System.out.println(employee);
 			}
-//			openSession.commit();
+		} finally {
+			openSession.close();
+		}
+	}
+	
+	@Test
+	public void testDynamicSql8() throws IOException{
+		SqlSessionFactory factory = getFactory();
+		SqlSession openSession = factory.openSession();
+		try {
+			EmployeeMapperDynamicSQL mapper = openSession.getMapper(EmployeeMapperDynamicSQL.class);
+			Employee employee = new Employee();
+			employee.setLastName("e");
+			List<Employee> employees = mapper.getEmpsTestInnerParameter(employee);
+			for(Employee emp : employees){
+				System.out.println(emp);
+			}
 		} finally {
 			openSession.close();
 		}
