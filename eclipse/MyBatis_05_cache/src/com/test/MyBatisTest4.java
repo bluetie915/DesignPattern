@@ -41,9 +41,12 @@ public class MyBatisTest4 {
 	 * 			新的会话查询信息就可以参照二级缓存中的内容
 	 * 		3、sqlSession===>EmployeeMapper===>Employee
 	 * 						 DepartmentMapper===>Department
-	 * 						不同的namespace查出的数据会放在自己对应的缓存中（map）
+	 * 					不同的namespace查出的数据会放在自己对应的缓存中（map）
+	 * 			效果：数据会从二级缓存中获取
+	 * 				查出的数据会默认先放在一级缓存中
+	 * 				只有会话提交或者关闭之后一，一级缓存中的数据才会转移到二级缓存中
 	 * 		使用：
-	 * 			1、开启全局二级缓存配置：
+	 * 			1、开启全局二级缓存配置（在mapper中配置）：
 	 * 			2、去mapper.xml中配置使用二级缓存
 	 * 			3、我们的POJO序列需要实现序列化接口
 	 */
@@ -155,6 +158,11 @@ public class MyBatisTest4 {
 			Employee employee1 = mapper1.getEmpById(1);
 			System.out.println(employee1);
 			session1.close();
+			
+			//第二次查询是从二级缓存中拿到的数据，并没有发送新的sql
+			Employee employee2 = mapper2.getEmpById(1);
+			System.out.println(employee2);
+			session2.close();
 		} finally {
 		}
 	}
