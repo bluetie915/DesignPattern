@@ -11,8 +11,11 @@ import com.dao.EmployeeMapper;
 @Service
 public class EmployeeService {
 
-	@Autowired
+	
 	private EmployeeMapper mapper;
+	@Autowired EmployeeService(EmployeeMapper mapper) {
+		this.mapper = mapper;
+	}
 	
 	public List<Employee> getEmps(){
 		return mapper.getEmployees();

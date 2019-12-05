@@ -13,8 +13,12 @@ import com.service.EmployeeService;
 @Controller
 public class EmployeeController {
 
-	@Autowired
+	
 	EmployeeService service;
+	@Autowired
+	public EmployeeController(EmployeeService service) {
+		this.service = service;
+	}
 	
 	@RequestMapping("/getAllEmps")
 	public String emps(Map<String, Object> map){
