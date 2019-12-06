@@ -1,4 +1,4 @@
-package com.atguigu.mybatis.bean;
+package com.bean;
 
 public class Employee {
 	

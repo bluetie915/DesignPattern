@@ -1,4 +1,4 @@
-package com.atguigu.mybatis.dao;
+package com.dao;
 
 import java.util.Properties;
 

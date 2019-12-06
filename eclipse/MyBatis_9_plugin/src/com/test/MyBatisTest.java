@@ -1,4 +1,4 @@
-package com.atguigu.mybatis.test;
+package com.test;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -11,8 +11,8 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.junit.Test;
 
-import com.atguigu.mybatis.bean.Employee;
-import com.atguigu.mybatis.dao.EmployeeMapper;
+import com.bean.Employee;
+import com.dao.EmployeeMapper;
 
 public class MyBatisTest {
 
