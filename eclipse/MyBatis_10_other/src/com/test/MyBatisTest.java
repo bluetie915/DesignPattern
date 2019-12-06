@@ -5,6 +5,7 @@ import java.io.InputStream;
 import java.util.List;
 
 import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.session.ExecutorType;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
@@ -56,23 +57,50 @@ public class MyBatisTest {
 		SqlSession session = sqlSessionFactory.openSession();
 		try {
 			EmployeeMapper mapper = session.getMapper(EmployeeMapper.class);
-			Page<Object> page = PageHelper.startPage(1, 2);
+			Page<Object> page = PageHelper.startPage(6, 2);
 			List<Employee> employees = mapper.getEmps();
-			//传入要连续显示多少页
-			PageInfo<Employee> info = new PageInfo<>(employees,5);
+			// 传入要连续显示多少页
+			PageInfo<Employee> info = new PageInfo<>(employees, 5);
 			for (Employee employee : employees) {
 				System.out.println(employee);
 			}
-//			System.out.println("当前页码" + page.getPageNum());
-//			System.out.println("总记录数" + page.getTotal());
-//			System.out.println("每页的记录数" + page.getPageSize());
-//			System.out.println("总页码" + page.getPages());
-			
+			// System.out.println("当前页码" + page.getPageNum());
+			// System.out.println("总记录数" + page.getTotal());
+			// System.out.println("每页的记录数" + page.getPageSize());
+			// System.out.println("总页码" + page.getPages());
+
 			System.out.println("当前页码:" + info.getPageNum());
 			System.out.println("总记录数:" + info.getTotal());
 			System.out.println("每页的记录数:" + info.getPageSize());
 			System.out.println("总页码:" + info.getPages());
 			System.out.println("是否第一页:" + info.isIsFirstPage());
+			System.out.println("连续显示的页码：");
+			int[] nums = info.getNavigatepageNums();
+			for (int i = 0; i < nums.length; i++) {
+				System.out.println(nums[i]);
+			}
+		} finally {
+			session.close();
+		}
+	}
+
+	@Test
+	public void testBatch() throws IOException {
+		SqlSessionFactory sqlSessionFactory = getSqlSessionFactory();
+		// 可以执行批量操作的sqlSession
+		SqlSession session = sqlSessionFactory.openSession(ExecutorType.BATCH);
+		long start = System.currentTimeMillis();
+		try {
+			EmployeeMapper mapper = session.getMapper(EmployeeMapper.class);
+			for (int i = 0; i < 10000; i++) {
+				mapper.addEmp(new Employee("q", "b", "e"));
+			}
+			session.commit();
+			long end = System.currentTimeMillis();
+			//批量：（预编译sql一次==>设置参数===>10000次===>执行一次）
+			//Parameters：q(String), b(String), e(String)  用时4489
+			//非批量：预编译sql=设置参数=执行===>10000
+			System.out.println("一共用时：" + (end - start));
 		} finally {
 			session.close();
 		}

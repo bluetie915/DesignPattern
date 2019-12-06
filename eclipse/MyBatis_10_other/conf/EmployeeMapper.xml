@@ -15,4 +15,10 @@
 	<select id="getEmps" resultType="com.bean.Employee">
 		select * from tbl_employee
 	</select>
+	
+	<!-- public Long addEmp(Employee employee); -->
+	<insert id="addEmp">
+		insert into tbl_employee(last_name,email,gender) 
+		values (#{lastName},#{email},#{gender})
+	</insert>
 </mapper>

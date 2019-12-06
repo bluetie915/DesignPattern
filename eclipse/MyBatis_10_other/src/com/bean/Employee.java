@@ -33,5 +33,15 @@ public class Employee {
 	public String toString() {
 		return "Employee [id=" + id + ", lastName=" + lastName + ", email=" + email + ", gender=" + gender + "]";
 	}
+	public Employee(String lastName, String email, String gender) {
+		super();
+		this.lastName = lastName;
+		this.email = email;
+		this.gender = gender;
+	}
+	public Employee() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	
 }
